@@ -5,7 +5,7 @@ const fakeData  =  [
         name: "João Oliveira",
         job: "Desenvolvedor",
         access: 0,
-        password: '12345'
+        password: '$2b$12$mOBvunf.O3wr4Ego2enM/umi1gjO3Qp97GS4Ao2ldUkXdXpHYKAxm'
     }
 ]
 

@@ -1,11 +1,14 @@
 const data =  require("./fakeData");
+const bcrypt = require('bcrypt');
 
-module.exports = function(req, res){
+module.exports =  async function(req, res) {
+    const salt = await bcrypt.genSalt(12);
+
     const newUser = {
         id: req.body.id,
         name: req.body.name,
         job: req.body.job,
-        password: req.body.password,
+        password: await bcrypt.hash(req.body.password, salt),
         access: 0
     }
 
