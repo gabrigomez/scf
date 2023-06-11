@@ -1,9 +1,12 @@
+const data = require("./fakeData");
 
+module.exports = function(req, res) {    
+    const id = req.query.id;
+    const user = data.find(req => req.id == id)
 
-module.exports = function(req, res){
-    
-    var name =  req.query.name;
-
-    res.send("Usuário " +  name  + "  foi lido 0 vezes.");
-
+    if(!user) {
+        res.status(404).json('Usuário não encontrado')
+        return
+    }
+    res.send(`Usuário ${user.name} foi lido ${user.access} vezes.`);
 };

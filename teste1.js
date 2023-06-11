@@ -8,6 +8,8 @@ const getUser = (req, res) => {
         res.status(404).json('Usuário não encontrado')
         return
     }
+    
+    response.access += 1
     res.send(response)
 };
 
