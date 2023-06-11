@@ -6,8 +6,8 @@ const getUser = (req, res) => {
     
     if(!response) {
         res.status(404).json('Usuário não encontrado')
+        return
     }
-
     res.send(response)
 };
 

@@ -14,6 +14,7 @@ module.exports = function(req, res){
 
     if(!newUser.id || !newUser.name || !newUser.job) {
         res.status(400).json("Preencha todos os dados corretamente")
+        return
     } 
 
     data.push(newUser)
