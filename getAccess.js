@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 const data = require("./fakeData");
 
 async function login (req, res) {  
@@ -18,16 +19,17 @@ async function login (req, res) {
     return res.status(404).json('Usuário não cadastrado');
   };
 
-  const checkPassword = password === user.password ? true : false
+  const checkPassword = await bcrypt.compare(password, user.password)
 
   if(!checkPassword) {
     return res.status(422).json('Senha incorreta');
   }
 
-  secret = 'iknowthisisnotsafe'
+  secret = 'iknow,thisisnotsafe'
 
   const token = jwt.sign({ id: user.id }, secret)
-  res.status(201).json({token, user});
+  
+  res.status(201).json({token});
 
 };
 

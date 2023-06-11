@@ -1,6 +1,6 @@
 var data = require("./fakeData");
 
-module.exports = function(req, res) {  
+module.exports = async function(req, res) {
     const id = req.query.id;
     const user = data.find(req => req.id == id)
 
@@ -13,6 +13,8 @@ module.exports = function(req, res) {
         id: id,
         name: req.body.name,
         job: req.body.job,
+        password: user.password,
+        access: user.access,
     }
 
     data.splice(user, 1, updateUser)

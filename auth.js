@@ -9,7 +9,7 @@ const auth = (req, res, next) => {
   }
 
   try {
-    secret = 'iknowthisisnotsafe'
+    secret = 'iknow,thisisnotsafe'
 
     JsonWebTokenError.verify(token, secret);
     next();
