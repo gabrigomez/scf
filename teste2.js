@@ -1,17 +1,12 @@
 const data =  require("./fakeData");
 
 module.exports = function(req, res){
-  
-    const name = req.body.name;
-    const job = req.body.job;
-    const id = req.body.id
-    const password = req.body.password
-    
     const newUser = {
-        id: id,
-        name: name,
-        job: job,
-        password: password
+        id: req.body.id,
+        name: req.body.name,
+        job: req.body.job,
+        password: req.body.password,
+        access: 0
     }
 
     if(!newUser.id || !newUser.name || !newUser.job) {
