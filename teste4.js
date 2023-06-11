@@ -1,13 +1,20 @@
-var data =  require("./fakeData");
+var data = require("./fakeData");
 
-module.exports =  function(req, res) {
-  
-    var id =  req.query.id;
+module.exports = function(req, res) {  
+    const id = req.query.id;
+    const user = data.find(req => req.id == id)
 
-    const reg = data.find(d => id == id);
-    reg.name = req.body.name;
-    reg.job = req.body.job;
+    if(!user) {
+        res.status(404).json('Usuário não encontrado')
+        return
+    }
+    
+    const updateUser = {
+        id: id,
+        name: req.body.name,
+        job: req.body.job,
+    }
 
-    res.send(reg);
-
+    data.splice(user, 1, updateUser)
+    res.send('Usuário Atualizado com sucesso');
 };
