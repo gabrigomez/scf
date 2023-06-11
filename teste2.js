@@ -1,17 +1,22 @@
-var data =  require("./fakeData");
+const data =  require("./fakeData");
 
 module.exports = function(req, res){
   
-    var name =  req.body.name;
-    var jov =  req.body.job;
+    const name = req.body.name;
+    const job = req.body.job;
+    const id = req.body.id
     
-    var newUser = {
+    const newUser = {
+        id: id,
         name: name,
         job: job,
     }
 
+    if(!newUser.id || !newUser.name || !newUser.job) {
+        res.status(400).json("Preencha todos os dados corretamente")
+    } 
+
     data.push(newUser)
     
     res.send(newUser);
-
 };
