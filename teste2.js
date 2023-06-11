@@ -2,6 +2,7 @@ const data =  require("./fakeData");
 const bcrypt = require('bcrypt');
 
 module.exports =  async function(req, res) {
+    // bcrypt para criptografia da senha
     const salt = await bcrypt.genSalt(12);
 
     const newUser = {
@@ -19,5 +20,5 @@ module.exports =  async function(req, res) {
 
     data.push(newUser)
     
-    res.send(newUser);
+    res.send("Usuário cadastrado com sucesso");
 };

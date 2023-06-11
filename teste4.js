@@ -5,7 +5,7 @@ module.exports = async function(req, res) {
     const user = data.find(req => req.id == id)
 
     if(!user) {
-        res.status(404).json('Usuário não encontrado')
+        res.status(404).json("Usuário não encontrado")
         return
     }
     
@@ -18,5 +18,5 @@ module.exports = async function(req, res) {
     }
 
     data.splice(user, 1, updateUser)
-    res.send('Usuário Atualizado com sucesso');
+    res.send("Usuário Atualizado com sucesso");
 };

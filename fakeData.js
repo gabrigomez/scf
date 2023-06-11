@@ -1,3 +1,5 @@
+// Foram adicionados os campos de password (pra controle de permissões) e access, pra controlar
+// quantas vezes o usuário foi acessado
 
 const fakeData  =  [
     {

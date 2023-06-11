@@ -5,7 +5,7 @@ const getUser = (req, res) => {
     const response = data.find(req => req.id == id)
     
     if(!response) {
-        res.status(404).json('Usuário não encontrado')
+        res.status(404).json("Usuário não encontrado")
         return
     }
     
